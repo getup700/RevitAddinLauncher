@@ -17,13 +17,13 @@ namespace Install
             {
                 2020
             };
-            Addin.Name = "BJUB.addin";
+            Addin.Name = "BJUB.F.addin";
             Addin.Versions = versions;
 
             var sourceAddin = FileUtil.GetAddins(Environment.CurrentDirectory, x => x.Name == Addin.Name)?.FirstOrDefault();
-            var directories = FileUtil.GetMachineAddins()?.Where(x => Addin.Versions.Contains(int.Parse(x.Name)));
+            var targetMachineAddins = FileUtil.GetMachineAddins()?.Where(x => Addin.Versions.Contains(int.Parse(x.Name)));
             Settings.Default.Name = Addin.Name;
-            if (directories == null)
+            if (targetMachineAddins == null)
             {
                 Log.Record("directories is null");
                 return;
@@ -32,7 +32,7 @@ namespace Install
             {
                 throw new ArgumentNullException(nameof(sourceAddin), "target directory cannot be null");
             }
-            foreach (var item in directories)
+            foreach (var item in targetMachineAddins)
             {
                 FileUtil.CopyFile(sourceAddin, item);
             }

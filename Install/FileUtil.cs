@@ -90,7 +90,7 @@ namespace Install
                         string value = string.Empty;
                         if (text != null && text.Contains("{0}"))
                         {
-                            value = string.Format(text, source);
+                            value = string.Format(text, file.Directory);
                         }
                         else if (text != null)
                         {

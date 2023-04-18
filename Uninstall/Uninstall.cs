@@ -20,7 +20,7 @@ namespace Uninstall
             //var name = GetValue(type, "Name");
             //var versions = GetValue(type, "Versions");
 
-            string name = "BJUB.addin";
+            string name = "BJUB.F.addin";
 
             var targetDirectories = FileUtil.GetMachineAddins();
             if (targetDirectories.Count() == 0)
